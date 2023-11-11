@@ -18,6 +18,7 @@ function sendMail() {
         // Use sendForm with the form element
         emailjs.send('service_8m2mala', 'template_cq8bbaw', params)
             .then(function () {
+                document.getElementById('contact-form').reset();    
                 console.log('SUCCESS!');
             }, function (error) {
                 console.log('FAILED...', error);

@@ -391,6 +391,7 @@ section .title::after{
 }
 .skills .skills-content .right .info{
     display: flex;
+    flex-direction: column;
     margin-bottom: 5px;
     align-items: center;
     justify-content: space-between;
@@ -604,13 +605,18 @@ footer span a:hover{
 
 
 /* responsive media query start */
+
 @media (max-width: 1104px) {
     .about .about-content .left img{
         height: 350px;
         width: 350px;
     }
 }
-
+@media (min-width: 600px) {
+    .skills .skills-content .right .info{
+        flex-direction: row
+    }
+}
 @media (max-width: 991px) {
     .max-width{
         padding: 0 50px;
