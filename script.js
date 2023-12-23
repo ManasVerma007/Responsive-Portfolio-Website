@@ -4,26 +4,40 @@
 })();
 
 function sendMail() {
-        // Get the form element
-        const form = document.getElementById('contact-form');
+    event.preventDefault();
+    // Get the form element
+    const form = document.getElementById('contact-form');
 
-        // Get the values from the form
-        const params = {
-            from_name: document.getElementById('fullname').value,
-            email: document.getElementById('email').value,
-            message: document.getElementById('message').value,
-            subject: document.getElementById('subject').value
-        };
+    // Get the values from the form
+    const params = {
+        from_name: document.getElementById('fullname').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value,
+        subject: document.getElementById('subject').value
+    };
 
-        // Use sendForm with the form element
-        emailjs.send('service_8m2mala', 'template_cq8bbaw', params)
-            .then(function () {
-                document.getElementById('contact-form').reset();    
-                console.log('SUCCESS!');
-            }, function (error) {
-                console.log('FAILED...', error);
-            });
-        }
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(params.email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    // Validate from_name
+    if (params.from_name.trim() === "") {
+        alert("Please enter your name.");
+        return;
+    }
+
+    // Use sendForm with the form element
+    emailjs.send('service_8m2mala', 'template_cq8bbaw', params)
+        .then(function () {
+            document.getElementById('contact-form').reset();    
+            console.log('SUCCESS!');
+        }, function (error) {
+            console.log('FAILED...', error);
+        });
+}
 
 
 const popup = document.getElementById("popup");
