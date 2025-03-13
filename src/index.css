@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-white dark:bg-dark-bg text-gray-800 dark:text-dark-text;
+  }
+
+  /* Enhanced dark mode text visibility */
+  .dark a {
+    @apply text-accent-dark hover:text-accent-dark/90;
+  }
+
+  .dark .text-accent {
+    @apply text-accent-dark;
+  }
+
+  /* Improve button visibility in dark mode */
+  .dark .bg-accent {
+    @apply bg-accent-dark;
+  }
+  
+  .dark .border-accent {
+    @apply border-accent-dark;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .heading-xl {
+    @apply text-4xl md:text-5xl font-bold;
+  }
+  
+  .heading-lg {
+    @apply text-3xl md:text-4xl font-bold;
+  }
+  
+  .heading-md {
+    @apply text-2xl md:text-3xl font-bold;
+  }
+}
