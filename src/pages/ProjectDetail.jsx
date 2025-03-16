@@ -32,11 +32,12 @@ export default function ProjectDetail() {
       <h1 className="heading-lg mb-4">{project.title}</h1>
       
       {project.image && (
-        <div className="mb-8 overflow-hidden rounded-lg shadow-md">
+        <div className="mb-8 overflow-hidden rounded-lg shadow-md mx-auto max-w-4xl">
           <img 
             src={project.image} 
             alt={project.title} 
-            className="w-full h-auto"
+            className="w-full h-auto object-cover"
+            style={{ maxHeight: '600px' }}
           />
         </div>
       )}
